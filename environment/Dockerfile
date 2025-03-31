@@ -18,6 +18,7 @@ RUN pip3 install -U --no-cache-dir \
 	scikit-learn \
 	scipy \ 
 	pytest \
+	notebook \
 	ipykernel
 	
 RUN cd /.code-server \

@@ -14,15 +14,9 @@ RUN pip3 install -U --no-cache-dir \
 	opencv-python==4.10.0.84 \
 	dask \
 	zarr \
-    matplotlib \
 	pandas \
 	scikit-learn \
-	seaborn \
 	scipy \ 
-	aind-codeocean-api \
-    aind-codeocean-utils \
-    pyyaml \
-	dask_ml \
 	pytest \
 	ipykernel
 	

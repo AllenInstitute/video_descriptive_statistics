@@ -1,0 +1,21 @@
+{
+	"version": 1,
+	"attached_datasets": [
+		{
+			"id": "465ff71f-b626-4591-9e2a-5f835e5eec4f",
+			"mount": "Thyme_test"
+		},
+		{
+			"id": "86b4e00c-7613-4229-8b93-639673e9d9b1",
+			"mount": "test_data"
+		},
+		{
+			"id": "d31b2f56-8a90-4b55-8ef8-d812d5aa50b0",
+			"mount": "736963_multiplane-ophys_736963_2024-07-30_09-11-03_Face_motion_energy"
+		},
+		{
+			"id": "d43536e7-ece8-40e3-b923-0fce04673d11",
+			"mount": "Thyme_736963_Face_Zarr_video1"
+		}
+	]
+}

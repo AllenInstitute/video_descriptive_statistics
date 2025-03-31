@@ -5,7 +5,6 @@ import random
 import pandas as pd 
 from pathlib import Path
 
-matplotlib.rc('ytick', labelsize=20) 
 
 def get_results_folder(pipeline: bool = True) -> Path:
     """

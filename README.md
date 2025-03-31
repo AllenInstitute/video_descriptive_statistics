@@ -18,7 +18,8 @@ pip install numpy zarr opencv-python scipy
  🧠 **Class Overview**
 Initialization
 
-```from pathlib import Path
+```
+from pathlib import Path
 from video_stats import VideoStats
 
 video_stats = VideoStats(frame_zarr_path=Path("path/to/zarr"), number_of_frames_to_use=100)

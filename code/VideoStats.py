@@ -145,7 +145,7 @@ class VideoStats:
         )
         return self
 
-    def detect_blur_laplacian(self):
+    def _detect_blur_laplacian(self):
         """
         Compute the variance of Laplacian for each frame to quantify blur.
 

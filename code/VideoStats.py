@@ -6,7 +6,8 @@ import cv2
 from pathlib import Path
 from scipy.fft import fft2, fftshift
 
-RESULTS_PATH= Path("../results")
+RESULTS_PATH = utils.get_results_folder()#Path("../results")
+
 class VideoStats:
     def __init__(self, frame_zarr_path: Path, number_of_frames_to_use: int = 100):
         """

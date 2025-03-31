@@ -47,32 +47,26 @@ def crop_frame(frame, crop_region):
     return cropped_frame
 
 
-
-def compute_edges(frame, method='sobel', sobel_ksize=5, canny_threshold1=100, canny_threshold2=200):
-    """
-    Computes the edges of a frame using the specified edge detection method.
+def smooth_series(series, window_size):
+    """Smooth the series using a moving average.
     
-    Parameters:
-        frame (numpy array): The input image frame (BGR format).
-        method (str): The edge detection method to use ('sobel' or 'canny').
-        sobel_ksize (int): Kernel size for the Sobel operator.
-        canny_threshold1 (int): First threshold for the hysteresis procedure in Canny.
-        canny_threshold2 (int): Second threshold for the hysteresis procedure in Canny.
-        
+    Args:
+        series (pd.Series): The data series to smooth.
+        window_size (int): The size of the moving average window.
+    
     Returns:
-        edges (numpy array): The edges detected in the image.
+        pd.Series: The smoothed series.
     """
+    return series.rolling(window=window_size, min_periods=1).mean()
+
+
+def normalize_series(series):
+    """Normalize the series using min-max scaling.
     
-    # Blur the frame for better edge detection
-    img_blur = cv2.GaussianBlur(img_gray, (3, 3), 0)
+    Args:
+        series (pd.Series): The data series to normalize.
     
-    if method == 'sobel':
-        # Sobel Edge Detection on both X and Y axes
-        edges = cv2.Sobel(src=img_blur, ddepth=cv2.CV_64F, dx=1, dy=1, ksize=sobel_ksize)
-    elif method == 'canny':
-        # Canny Edge Detection
-        edges = cv2.Canny(image=img_blur, threshold1=canny_threshold1, threshold2=canny_threshold2)
-    else:
-        raise ValueError("Invalid method. Use 'sobel' or 'canny'.")
-    
-    return edges
+    Returns:
+        pd.Series: The normalized series.
+    """
+    return (series - series.min()) / (series.max() - series.min())

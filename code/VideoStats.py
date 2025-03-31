@@ -6,7 +6,7 @@ import cv2
 from pathlib import Path
 from scipy.fft import fft2, fftshift
 
-
+RESULTS_PATH= Path("../results")
 class VideoStats:
     def __init__(self, frame_zarr_path: Path, number_of_frames_to_use: int = 100):
         """
@@ -157,3 +157,10 @@ class VideoStats:
             laplacian = cv2.Laplacian(frame, cv2.CV_64F)
             self.blur_values.append(laplacian.var())
         return self
+
+    def _save(self):
+        meta_dict = utils.object_to_dict(self)
+        session_name = self.metadata['session_name']
+        with open(Path(RESULTS_PATH, session_name +"_VideoStats.pkl", "wb")) as f:
+            pickle.dump(meta_dict, f)
+        print('saved object as a dicitonary to json file')

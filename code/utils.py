@@ -31,7 +31,8 @@ def get_data_folder(pipeline: bool = True) -> Path:
     else:
         return Path('/root/capsule/data')
 
-def object_to_dict(obj):
+
+def object_to_dict(obj: class) -> dict:
     if hasattr(obj, "__dict__"):
         return {key: object_to_dict(value) for key, value in vars(obj).items()}
     elif isinstance(obj, list):
@@ -41,8 +42,9 @@ def object_to_dict(obj):
     else:
         return obj
 
+
 def crop_frame(frame, crop_region):
-    x, y, width, height = crop_region
+    y, x, height, width = crop_region
     cropped_frame = frame[y:y+height, x:x+width]
     return cropped_frame
 

@@ -21,7 +21,7 @@ class VideoStats:
         self.frame_zarr_path = frame_zarr_path
         self.number_of_frames_to_use = number_of_frames_to_use
         self.crop = True
-        self.crop_region = (200, 290, 280, 360)
+        self.crop_region = (280, 200, 80, 90) #y, x, height, width 
 
     def _get_zarr_store_frame(self):
         """Return the Zarr store object."""

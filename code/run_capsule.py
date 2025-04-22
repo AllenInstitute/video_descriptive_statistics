@@ -22,7 +22,7 @@ def run():
         vs._compute_snr()
         vs._compute_edges()
         vs._compute_pixel_distribution()
-        vs__detect_blur_laplacian()
+        vs._detect_blur_laplacian()
         vs._save()
 
         end_time = time.time()  # End the timer

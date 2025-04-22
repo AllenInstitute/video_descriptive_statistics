@@ -20,6 +20,8 @@ class VideoStats:
         """
         self.frame_zarr_path = frame_zarr_path
         self.number_of_frames_to_use = number_of_frames_to_use
+        self.crop = True
+        self.crop_region = (200, 290, 280, 360)
 
     def _get_zarr_store_frame(self):
         """Return the Zarr store object."""
@@ -49,8 +51,12 @@ class VideoStats:
 
         # Load frames using the sampled indices
         random_frames = np.stack([data[i] for i in random_indices])
+        if self.crop:
+            processed_frames = utils.crop_frames(random_frames[:, self.crop_region)
+        else:
+            processed_frames = random_indices
 
-        self.frame_indices = random_indices
+        self.frame_indices = processed_frames
         self.frames = random_frames
         return self
 

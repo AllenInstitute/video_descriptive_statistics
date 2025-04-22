@@ -43,10 +43,10 @@ def object_to_dict(obj) -> dict:
         return obj
 
 
-def crop_frame(frame, crop_region):
+def crop_frames(frames, crop_region):
     y, x, height, width = crop_region
-    cropped_frame = frame[y:y+height, x:x+width]
-    return cropped_frame
+    cropped_frames = frames[:,y:y+height, x:x+width]
+    return cropped_frames
 
 
 def smooth_series(series, window_size):

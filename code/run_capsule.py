@@ -10,7 +10,7 @@ DATA_PATH = utils.get_data_folder(pipeline=True)
 zarr_paths = list(DATA_PATH.glob("*/*/processed_frames.zarr"))
 print(f'Found {len(zarr_paths)}.')
 def run():
-    for zarr_path in zarr_paths[:1]:
+    for zarr_path in zarr_paths:
         start_time = time.time()  # Start the timer
 
         vs = VideoStats(zarr_path)

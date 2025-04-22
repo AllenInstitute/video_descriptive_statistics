@@ -52,7 +52,7 @@ class VideoStats:
         # Load frames using the sampled indices
         random_frames = np.stack([data[i] for i in random_indices])
         if self.crop:
-            processed_frames = utils.crop_frames(random_frames[:, self.crop_region)
+            processed_frames = utils.crop_frames(random_frames, self.crop_region)
         else:
             processed_frames = random_indices
 

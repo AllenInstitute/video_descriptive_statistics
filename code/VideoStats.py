@@ -56,8 +56,8 @@ class VideoStats:
         else:
             processed_frames = random_indices
 
-        self.frame_indices = processed_frames
-        self.frames = random_frames
+        self.frame_indices = random_indices
+        self.frames = processed_frames
         return self
 
     def _compute_contrast(self):

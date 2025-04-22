@@ -162,7 +162,7 @@ class VideoStats:
 
     def _save(self):
         meta_dict = utils.object_to_dict(self)
-        session_type = self.video_metadata['session_type']
-        with open(Path(RESULTS_PATH, session_type +"_VideoStats.pkl", "wb")) as f:
+        data_asset_name = self.video_metadata['data_asset_name']
+        with open(Path(RESULTS_PATH, data_asset_name +"_VideoStats.pkl"), "wb") as f:
             pickle.dump(meta_dict, f)
         print('saved object as a dicitonary to json file')

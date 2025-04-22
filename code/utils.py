@@ -32,7 +32,7 @@ def get_data_folder(pipeline: bool = True) -> Path:
         return Path('/root/capsule/data')
 
 
-def object_to_dict(obj: class) -> dict:
+def object_to_dict(obj) -> dict:
     if hasattr(obj, "__dict__"):
         return {key: object_to_dict(value) for key, value in vars(obj).items()}
     elif isinstance(obj, list):

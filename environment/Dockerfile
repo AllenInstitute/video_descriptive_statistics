@@ -17,9 +17,7 @@ RUN pip3 install -U --no-cache-dir \
 	pandas \
 	scikit-learn \
 	scipy \ 
-	pytest \
-	notebook \
-	ipykernel
+	pytest 
 	
 RUN cd /.code-server \
 	&& tar -xvf code-server.tar.gz \

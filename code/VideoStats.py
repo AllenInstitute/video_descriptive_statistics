@@ -156,7 +156,7 @@ class VideoStats:
         """
         self.blur_values = []
         for frame in self.frames:
-            laplacian = cv2.Laplacian(frame, cv2.CV_64F)
+            laplacian = cv2.Laplacian(frame, cv2.CV_32F)
             self.blur_values.append(laplacian.var())
         return self
 

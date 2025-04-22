@@ -13,8 +13,17 @@ def run():
     for zarr_path in zarr_paths[:1]:
         start_time = time.time()  # Start the timer
 
-        me_analyser = VideoStats(zarr_path)
+        vs = VideoStats(zarr_path)
         ## add computing steps here
+
+        vs._load_metadata()
+        vs._load_frames()
+        vs._compute_contrast()
+        vs._compute_snr()
+        vs._compute_edges()
+        vs._compute_pixel_distribution()
+        vs__detect_blur_laplacian()
+        vs._save()
 
         end_time = time.time()  # End the timer
         duration = end_time - start_time
